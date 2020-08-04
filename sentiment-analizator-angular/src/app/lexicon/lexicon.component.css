@@ -15,14 +15,13 @@
  background-color:  rgb(44, 53, 88);;
 }
 .words-holder{
-  max-height: 350px;
-  min-height: 250px;
+  height: 250px;
 }
 .border-custom{
  border-bottom: 1px solid rgb(100, 109, 138);
 }
 .words{
-  max-height: 30px;
+  max-height: 25px !important;
 }
 .delete{
   cursor: pointer;
@@ -30,4 +29,17 @@
 }
 .delete:hover{
   color: red;
+}
+.filter-box{
+
+  border-radius: 4px;
+  width: 100px !important;
+  background-color: rgb(44, 53, 88);
+  height: auto;
+}
+.filter-box:hover{
+  cursor: pointer;
+}
+.filter-wrapper{
+max-height: 250px;
 }
