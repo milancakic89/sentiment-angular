@@ -1,0 +1,19 @@
+.bg-light-custom{
+  background-color:  rgb(100, 109, 138);;
+}
+.files{
+  
+
+	opacity: 1;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+
+}
+.pick-a-file{
+
+  padding: 7px;
+}
+.container{
+  min-height: 580px;
+}

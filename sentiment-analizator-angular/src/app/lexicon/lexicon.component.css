@@ -1,5 +1,5 @@
 .container{
-
+  min-height: 580px;
 }
 .text-light-custom{
   color: rgb(247, 247, 255);
@@ -16,12 +16,13 @@
 }
 .words-holder{
   height: 250px;
+  overflow-y: auto;
 }
 .border-custom{
  border-bottom: 1px solid rgb(100, 109, 138);
 }
 .words{
-  max-height: 25px !important;
+  max-height: 35px !important;
 }
 .delete{
   cursor: pointer;

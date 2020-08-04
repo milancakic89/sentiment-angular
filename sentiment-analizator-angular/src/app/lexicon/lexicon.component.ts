@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lexicon.component.css']
 })
 export class LexiconComponent implements OnInit {
-
+lexicon: string[] = ['Hello', 'Hola', 'Hi', 'Mufasa', 'Jelena', 'Marija', 'Zika', 'Mika']
   constructor() { }
 
   ngOnInit(): void {

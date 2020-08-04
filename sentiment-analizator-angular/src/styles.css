@@ -28,3 +28,24 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+/* fixing defaulty scrollbar style*/
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #cfcece;
+ 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(63, 62, 62);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(173, 92, 92);
+}

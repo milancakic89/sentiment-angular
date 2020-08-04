@@ -7,3 +7,6 @@ color: rgb(247, 247, 255);
   border-radius: 15px;
   border: none;
 }
+.leyout-height{
+  min-height: 562px;
+}
