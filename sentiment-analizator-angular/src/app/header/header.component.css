@@ -1,0 +1,31 @@
+.bg-secondary-custom{
+  background-color: rgb(44, 53, 88);
+}
+
+.nav-list{
+  list-style-type: none;
+  padding: 0rem 1rem;
+  
+}
+.link-item-custom{
+  width: 100%;
+  text-align: left;
+  
+}
+.brand{
+  margin-top: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link-item-custom:hover{
+  color: rgb(251, 40, 75);
+  cursor: pointer;
+}
+@media (min-width: 768px){
+.border-custom{
+  border: none;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+}

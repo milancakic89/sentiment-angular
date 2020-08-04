@@ -1,0 +1,9 @@
+
+.bg-dark-custom{
+background-color: rgb(28, 32, 57);
+color: rgb(247, 247, 255);
+}
+.border-custom{
+  border-radius: 15px;
+  border: none;
+}

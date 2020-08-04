@@ -1,0 +1,33 @@
+.container{
+
+}
+.text-light-custom{
+  color: rgb(247, 247, 255);
+}
+.custom-input{
+  border-radius: 3px;
+  border: none;
+  padding: 0.4rem;
+  background-color: rgb(44, 53, 88);
+  color: rgb(247, 247, 255);
+}
+.bg-light-custom{
+ background-color:  rgb(44, 53, 88);;
+}
+.words-holder{
+  max-height: 350px;
+  min-height: 250px;
+}
+.border-custom{
+ border-bottom: 1px solid rgb(100, 109, 138);
+}
+.words{
+  max-height: 30px;
+}
+.delete{
+  cursor: pointer;
+  color: rgb(221, 67, 67);
+}
+.delete:hover{
+  color: red;
+}
