@@ -7,9 +7,13 @@
   padding: 0rem 1rem;
   
 }
+.h-100{
+  height: 100% !important;
+}
 .link-item-custom{
   width: 100%;
   text-align: left;
+  cursor: pointer;
   
 }
 .brand{
@@ -18,9 +22,19 @@
   cursor: pointer;
 }
 
-.link-item-custom:hover{
+
+
+
+.activeRoute:active{
+  color: green;
+}
+.link{
+  text-decoration: none;
+  color: #fff;
+}
+.activeRoute{
   color: rgb(251, 40, 75);
-  cursor: pointer;
+  border: none;
 }
 @media (min-width: 768px){
 .border-custom{

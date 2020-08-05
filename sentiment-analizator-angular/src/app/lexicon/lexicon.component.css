@@ -11,6 +11,12 @@
   background-color: rgb(44, 53, 88);
   color: rgb(247, 247, 255);
 }
+.positive{
+  color: rgb(37, 241, 37);
+}
+.negative{
+  color: red;
+}
 .bg-light-custom{
  background-color:  rgb(44, 53, 88);;
 }

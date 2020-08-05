@@ -7,6 +7,15 @@ color: rgb(247, 247, 255);
   border-radius: 15px;
   border: none;
 }
-.leyout-height{
-  min-height: 562px;
+.layout-height{
+  height: 100%;
+}
+.container{
+  min-height: 590px;
+  margin-top: 20px;
+}
+@media (max-width: 760px){
+  .container{
+  margin-top: 0px;
+}
 }

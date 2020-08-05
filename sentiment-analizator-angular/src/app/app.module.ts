@@ -5,6 +5,17 @@ import { AppComponent } from './app.component';
 import { LexiconComponent } from './lexicon/lexicon.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { HeaderComponent } from './header/header.component';
+import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from "@angular/forms";
+
+
+
+const routes: Routes = [
+  { path: '', redirectTo: 'lexicon', pathMatch: 'full' },
+  { path: 'lexicon', component: LexiconComponent },
+  { path: 'calculator', component: CalculatorComponent },
+  { path: ':others', component: LexiconComponent }
+]
 
 @NgModule({
   declarations: [
@@ -14,7 +25,9 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
