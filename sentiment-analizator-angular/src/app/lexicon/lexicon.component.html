@@ -9,11 +9,11 @@
       </div>
       <div class="col-sm-6">
         <label for="word">Word</label><br>
-        <input name="word" type="text" value="" class="custom-input w-100" ngModel />
+        <input name="word" type="text" value="" class="custom-input w-100" ngModel required />
       </div>
       <div class="col-sm-3">
         <label for="value">Value</label><br>
-        <input name="value" type="number" value="" class="custom-input w-100" ngModel />
+        <input name="value" type="number" value="" class="custom-input w-100" ngModel required />
       </div>
       <div class="col-sm-12 mb-3">
         <button class="btn btn-primary my-2" type="submit">Add</button>
@@ -25,15 +25,23 @@
         <div class="col-sm-12 mb-3 ">
           <p class="text-left h4 font-weight-light">Filter</p>
         </div>
-        <div class="col-sm-7 filter-box p-1 m-1 text-center font-weight-light">
+        <div class="col-sm-5 filter-box p-1 m-1 text-center font-weight-light"
+          [ngClass]="{active: applyClass == 'allWords'}" (click)="filterWords('allWords')">
+          <p class="mb-0">All</p>
+          <span class="text-success font-weight-bold">{{ allWords }}</span>
+        </div>
+        <div class="col-sm-5 filter-box p-1 m-1 text-center font-weight-light" (click)="filterWords('positive')"
+          [ngClass]="{active: applyClass == 'positive'}">
           <p class="mb-0">Positive</p>
           <span class="text-success font-weight-bold">{{ positiveAmount }}</span>
         </div>
-        <div class="col-sm-7 filter-box p-1 m-1 text-center font-weight-light">
+        <div class="col-sm-5 filter-box p-1 m-1 text-center font-weight-light" (click)="filterWords('neutral')"
+          [ngClass]="{active: applyClass == 'neutral'}">
           <p class="mb-0">Neutral</p>
-          <span class="text-warning font-weight-bold">{{ neutralAmount }}</span>
+          <span class="text-light font-weight-bold">{{ neutralAmount }}</span>
         </div>
-        <div class="col-sm-7 filter-box p-1 m-1 text-center1 font-weight-light">
+        <div class="col-sm-5 filter-box p-1 m-1 text-center1 font-weight-light" (click)="filterWords('negative')"
+          [ngClass]="{active: applyClass == 'negative'}">
           <p class="mb-0">Negative</p>
           <span class="text-danger font-weight-bold">{{ negativeAmount }}</span>
         </div>
@@ -45,7 +53,8 @@
         <div class="row  p-0">
           <div *ngFor="let lexicon of lexiconArray; let i = index" class="col-sm-12 p-2 words  border-custom d-flex">
             <p class="pl-1 m-0 w-50 d-inline ">{{ lexicon.word }}</p>
-            <p class="pl-1 text-center w-25" [ngClass]="{'positive': lexicon.value > 0, 'negative': lexicon.value < 0}">{{ lexicon.value }}</p>
+            <p class="pl-1 text-center w-25" [ngClass]="{'positive': lexicon.value > 0, 'negative': lexicon.value < 0}">
+              {{ lexicon.value }}</p>
             <p class="pl-1 text-center delete w-25" (click)="deleteItem(i)">X</p>
           </div>
 

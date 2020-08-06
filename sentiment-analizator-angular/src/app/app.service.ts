@@ -19,6 +19,9 @@ export class AppService {
     this.lexiconArray.splice(index, 1);
     return this.getUpdatedLexicon();
   }
+  getAllWordsAmount(){
+    return this.lexiconArray.length;
+  }
   getPositiveWordsAmount() {
     let positive: number = 0;
     for (let i = 0; i < this.lexiconArray.length; i++) {
@@ -46,5 +49,26 @@ export class AppService {
     }
     return neutral;
   }
+   filterWords(param: string){
+    let filteredWords: Lexicon[] = [];
+    if(param === 'neutral'){
+      filteredWords =  this.lexiconArray.filter(lexicon =>{
+      return lexicon.value === 0
+    })
+    }else if(param === "positive"){
+      filteredWords =  this.lexiconArray.filter(lexicon =>{
+      return lexicon.value > 0
+    })
+    }else if(param === "negative"){
+      filteredWords =  this.lexiconArray.filter(lexicon =>{
+      return lexicon.value < 0
+    })
+    }else{
+      filteredWords =  this.lexiconArray.slice()
+    }
+
+    return filteredWords;
+  }
+  
 
 }
