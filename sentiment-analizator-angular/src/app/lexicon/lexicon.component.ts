@@ -57,4 +57,7 @@ export class LexiconComponent implements OnInit {
     this.applyClass = param;
   }
 
+  onSave() {
+    console.log('Saving... To local storage');
+  }
 }

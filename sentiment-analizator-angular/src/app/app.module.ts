@@ -7,6 +7,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { HeaderComponent } from './header/header.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
+import { ResultTextComponent } from './calculator/result-text/result-text.component';
+import { ResultFileComponent } from './calculator/result-file/result-file.component';
 
 
 
@@ -22,7 +24,9 @@ const routes: Routes = [
     AppComponent,
     LexiconComponent,
     CalculatorComponent,
-    HeaderComponent
+    HeaderComponent,
+    ResultTextComponent,
+    ResultFileComponent
   ],
   imports: [
     BrowserModule,

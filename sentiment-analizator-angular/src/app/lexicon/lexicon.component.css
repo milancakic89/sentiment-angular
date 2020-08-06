@@ -23,6 +23,7 @@
 }
 .words-holder{
   height: 250px;
+ 
   overflow-y: auto;
 }
 .border-custom{
@@ -39,9 +40,9 @@
   color: red;
 }
 .filter-box{
-
+  display: inline-block;
   border-radius: 4px;
-  width: 100px !important;
+  width: 120px !important;
   background-color: rgb(44, 53, 88);
   height: auto;
 }
@@ -49,6 +50,7 @@
   cursor: pointer;
 }
 .filter-wrapper{
+  
 max-height: 250px;
 }
 .active{

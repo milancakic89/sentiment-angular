@@ -9,3 +9,15 @@
 .container{
   min-height: 590px;
 }
+.div-divider{
+  height: 100%;
+  width: 2px;
+  background-color: gray;
+}
+@media (max-width: 575px){
+  .div-divider{
+  height: 2px;
+  width: 100%;
+  background-color: gray;
+}
+}
