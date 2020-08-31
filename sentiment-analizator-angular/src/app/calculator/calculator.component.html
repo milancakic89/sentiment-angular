@@ -19,17 +19,20 @@
       <button class="btn btn-primary" (click)="analize()">Analize</button>
       <hr class="bg-secondary">
     </div>
-    <div class="col-sm-5" *ngIf="stage === 3">
+    <div class="col-sm-5" *ngIf="stage === 2">
       <app-result-text></app-result-text>
     </div>
-    <div class="col-sm-1" *ngIf="stage === 3">
+    <div class="col-sm-1" *ngIf="stage === 2">
       <div class="div-divider"></div>
     </div>
-    <div class="col-sm-6" *ngIf="stage === 3">
+    <div class="col-sm-6" *ngIf="stage === 2">
       <app-result-file></app-result-file>
     </div>
-    <div class="text-center w-100" *ngIf="stage != 3">
-      <p class="text-center">Analizing...</p>
+    <div class="text-center w-100" *ngIf="stage == 0">
+      <p class="text-center">Results</p>
+    </div>
+    <div class="text-center w-100" *ngIf="stage == 1">
+      <app-spinner></app-spinner>
     </div>
 
 

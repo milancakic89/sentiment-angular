@@ -3,8 +3,9 @@ import { Lexicon } from './lexicon/lexicon.model';
 export class AppService {
 
   lexiconArray: Lexicon[] = [];
-  test() {
-    console.log('huraaaayyy');
+  saveLexicon(lexicon: Lexicon[]) {
+    console.log("Lexicon" + lexicon)
+    this.lexiconArray = lexicon;
   }
 
   addNewLexicon(word: string, value: number) {
@@ -19,7 +20,7 @@ export class AppService {
     this.lexiconArray.splice(index, 1);
     return this.getUpdatedLexicon();
   }
-  getAllWordsAmount(){
+  getAllWordsAmount() {
     return this.lexiconArray.length;
   }
   getPositiveWordsAmount() {
@@ -49,26 +50,26 @@ export class AppService {
     }
     return neutral;
   }
-   filterWords(param: string){
+  filterWords(param: string) {
     let filteredWords: Lexicon[] = [];
-    if(param === 'neutral'){
-      filteredWords =  this.lexiconArray.filter(lexicon =>{
-      return lexicon.value === 0
-    })
-    }else if(param === "positive"){
-      filteredWords =  this.lexiconArray.filter(lexicon =>{
-      return lexicon.value > 0
-    })
-    }else if(param === "negative"){
-      filteredWords =  this.lexiconArray.filter(lexicon =>{
-      return lexicon.value < 0
-    })
-    }else{
-      filteredWords =  this.lexiconArray.slice()
+    if (param === 'neutral') {
+      filteredWords = this.lexiconArray.filter(lexicon => {
+        return lexicon.value === 0
+      })
+    } else if (param === "positive") {
+      filteredWords = this.lexiconArray.filter(lexicon => {
+        return lexicon.value > 0
+      })
+    } else if (param === "negative") {
+      filteredWords = this.lexiconArray.filter(lexicon => {
+        return lexicon.value < 0
+      })
+    } else {
+      filteredWords = this.lexiconArray.slice()
     }
 
     return filteredWords;
   }
-  
+
 
 }

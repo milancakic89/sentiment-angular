@@ -23,9 +23,13 @@ export class LexiconComponent implements OnInit {
   constructor(private service: AppService) { }
 
   ngOnInit(): void {
-    this.service.getUpdatedLexicon();
-    this.getWordsAmount();
-
+    let lexicon = localStorage.getItem('lexicon');
+    let lexiconParsed = JSON.parse(lexicon);
+    this.lexiconArray = lexiconParsed;
+    if (lexiconParsed) {
+      this.service.saveLexicon(lexiconParsed);
+      this.getWordsAmount();
+    }
   }
 
 
@@ -42,6 +46,7 @@ export class LexiconComponent implements OnInit {
     const value: number = values.value;
     if (form.valid) {
       this.lexiconArray = this.service.addNewLexicon(word, value);
+      console.log(word, value)
       this.getWordsAmount();
     }
 
@@ -51,13 +56,14 @@ export class LexiconComponent implements OnInit {
     this.lexiconArray = this.service.deleteFromLexicon(index);
     this.getWordsAmount();
   }
-  // add 'neutral' as param to filter neutral words. 'positive' to filter positive number, 'negative' for negative.
+  // add 'neutral' as param to filter neutral words. 'positive' to filter positive, 'negative' for negative.
   filterWords(param: string) {
     this.lexiconArray = this.service.filterWords(param)
     this.applyClass = param;
   }
 
   onSave() {
-    console.log('Saving... To local storage');
+    let dataToStore = this.service.getUpdatedLexicon();
+    localStorage.setItem('lexicon', JSON.stringify(dataToStore));
   }
 }

@@ -11,6 +11,7 @@ stage: number = 0;
 
   ngOnInit(): void {
   }
+  
 analize(){
   this.stage++;
 }

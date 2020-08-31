@@ -9,6 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { ResultTextComponent } from './calculator/result-text/result-text.component';
 import { ResultFileComponent } from './calculator/result-file/result-file.component';
+import { SpinnerComponent } from './calculator/spinner/spinner.component';
 
 
 
@@ -26,7 +27,8 @@ const routes: Routes = [
     CalculatorComponent,
     HeaderComponent,
     ResultTextComponent,
-    ResultFileComponent
+    ResultFileComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
