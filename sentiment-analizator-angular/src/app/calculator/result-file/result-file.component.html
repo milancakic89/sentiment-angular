@@ -6,6 +6,10 @@
     <p class="text-success">Pozitive: {{fileResults.pozitive}}</p>
     <p class="text-warning">Neutral: {{fileResults.neutral}}</p>
     <p class="text-danger">Negative: {{fileResults.negative}}</p>
-    <p>TOTAL: <span class="h5 text-bold">{{fileResults.total}}</span></p>
+    <p>TOTAL:
+      <span [ngClass]="{
+          'text-success': fileResults.total > 0,
+          'text-warning': fileResults.total === 0,
+          'text-danger': fileResults.total < 0 }" class="h5 text-bold"> {{fileResults.total}}</span></p>
   </div>
 </div>

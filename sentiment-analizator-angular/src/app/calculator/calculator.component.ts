@@ -32,16 +32,17 @@ export class CalculatorComponent implements OnInit {
   ngOnInit(): void {
     this.lexiconArray = this.service.fetchLocalStorage();
   }
+  
   analizeData(text: string, fileText: string) {
     //fileText can receive string or null (if no input provided => null);
-    this.resetData();
+
+    this.resetData(); //if analizing, previous data should't be shown
 
     let reg = /[^0-9a-zA-Z]+/;
     let textToAnalize = text.toUpperCase().split(reg);
 
     if (fileText) {
       let textFile = fileText.toUpperCase().split(reg);
-
       textFile.forEach((word: string) => {
         this.lexiconArray.forEach((lexicon: Lexicon) => {
           if (word.includes(lexicon.word.toUpperCase())) {
@@ -58,9 +59,9 @@ export class CalculatorComponent implements OnInit {
             }
           }
         })
-
       })
     }
+  
     if (textToAnalize) {
       textToAnalize.forEach((word: string) => {
         this.lexiconArray.forEach((lexicon: Lexicon) => {
@@ -80,17 +81,15 @@ export class CalculatorComponent implements OnInit {
         })
       })
     }
-    setTimeout(spinner => {
+    setTimeout((spinner: void) => {
       this.analizingStage = 2;
-    }, 1500)
+    }, 1500);
 
   }
 
   analize() {
     const text = this.textElem.nativeElement.value;
     let file = this.fileElem.nativeElement.files[0] || null;
-
-
     if (file) {
       let reader = new FileReader();
       reader.onload = () => {
