@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-result-file',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result-file.component.css']
 })
 export class ResultFileComponent implements OnInit {
-
+  @Input() fileResults;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,11 +1,12 @@
 <div class="row ">
-  <div class="col-sm-6 position-relative">
+  <div class="col-sm-5 position-relative">
     <p class="position-absolute spinner font-weight-light"><span>TEXT</span></p><br><br>
   </div>
-  <div class="col-sm-6">
-    <p>Pozitive: </p>
-    <p>Neutral: </p>
-    <p>Negative: </p>
+  <div class="col-sm-7">
+    <p class="text-success">Pozitive: {{textResults.pozitive}}</p>
+    <p class="text-warning">Neutral: {{textResults.neutral}}</p>
+    <p class="text-danger">Negative: {{textResults.negative}}</p>
+    <p>TOTAL: <span class="h5 text-bold">{{textResults.total}}</span></p>
   </div>
 
 </div>

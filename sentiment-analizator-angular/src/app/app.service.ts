@@ -71,5 +71,14 @@ export class AppService {
     return filteredWords;
   }
 
+fetchLocalStorage(){
+    let lexicon = localStorage.getItem('lexicon');
+    let lexiconParsed = JSON.parse(lexicon);
+    this.lexiconArray = lexiconParsed;
+    if (lexiconParsed) {
+     return this.lexiconArray = lexiconParsed;  
+    }
+    return [];
+}
 
 }
