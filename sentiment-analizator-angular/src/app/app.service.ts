@@ -1,10 +1,11 @@
 import { Lexicon } from './lexicon/lexicon.model';
+import { of } from 'rxjs';
 
 export class AppService {
 
   lexiconArray: Lexicon[] = [];
-  saveLexicon(lexicon: Lexicon[]) {
-    console.log("Lexicon" + lexicon)
+
+  saveLexicon(lexicon: Lexicon[]): void {
     this.lexiconArray = lexicon;
   }
 
@@ -24,27 +25,32 @@ export class AppService {
     return this.lexiconArray.length;
   }
   getPositiveWordsAmount() {
-    let positive: number = 0;
-    for (let i = 0; i < this.lexiconArray.length; i++) {
-      if (this.lexiconArray[i].value > 0) {
+    let positive = 0;
+    for (const lex of this.lexiconArray) {
+      if (lex.value > 0) {
         positive++;
       }
     }
+    // for (let i = 0; i < this.lexiconArray.length; i++) {
+    //   if (this.lexiconArray[i].value > 0) {
+    //     positive++;
+    //   }
+    // }
     return positive;
   }
   getNegativeWordsAmount() {
-    let negative: number = 0;
-    for (let i = 0; i < this.lexiconArray.length; i++) {
-      if (this.lexiconArray[i].value < 0) {
+    let negative = 0;
+    for (const lex of this.lexiconArray) {
+      if (lex.value < 0) {
         negative++;
       }
     }
     return negative;
   }
   getNeutralWordsAmount() {
-    let neutral: number = 0;
-    for (let i = 0; i < this.lexiconArray.length; i++) {
-      if (this.lexiconArray[i].value == 0) {
+    let neutral = 0;
+    for (const lex of this.lexiconArray) {
+      if (lex.value === 0) {
         neutral++;
       }
     }
@@ -54,31 +60,30 @@ export class AppService {
     let filteredWords: Lexicon[] = [];
     if (param === 'neutral') {
       filteredWords = this.lexiconArray.filter(lexicon => {
-        return lexicon.value === 0
-      })
+        return lexicon.value === 0;
+      });
     } else if (param === "positive") {
       filteredWords = this.lexiconArray.filter(lexicon => {
-        return lexicon.value > 0
-      })
+        return lexicon.value > 0;
+      });
     } else if (param === "negative") {
       filteredWords = this.lexiconArray.filter(lexicon => {
-        return lexicon.value < 0
-      })
+        return lexicon.value < 0;
+      });
     } else {
-      filteredWords = this.lexiconArray.slice()
+      filteredWords = this.lexiconArray.slice();
     }
 
     return filteredWords;
   }
 
-fetchLocalStorage(){
+  fetchLocalStorage() {
     let lexicon = localStorage.getItem('lexicon');
     let lexiconParsed = JSON.parse(lexicon);
     this.lexiconArray = lexiconParsed;
     if (lexiconParsed) {
-     return this.lexiconArray = lexiconParsed;  
+      return this.lexiconArray = lexiconParsed;
     }
     return [];
-}
-
+  }
 }

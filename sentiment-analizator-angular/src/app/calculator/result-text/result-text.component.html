@@ -4,12 +4,12 @@
   </div>
   <div class="col-sm-7">
     <p class="text-success">Pozitive: {{textResults.pozitive}}</p>
-    <p class="text-warning">Neutral: {{textResults.neutral}}</p>
+    <p class="text-light">Neutral: {{textResults.neutral}}</p>
     <p class="text-danger">Negative: {{textResults.negative}}</p>
     <p>TOTAL:
       <span [ngClass]="{
           'text-success': textResults.total > 0,
-          'text-warning': textResults.total === 0,
+          'text-light': textResults.total === 0,
           'text-danger': textResults.total < 0}" class="h5 text-bold"> {{textResults.total}}</span></p>
   </div>
 

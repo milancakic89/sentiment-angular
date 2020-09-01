@@ -11,7 +11,7 @@ export class CalculatorComponent implements OnInit {
   @ViewChild('textArea') textElem: ElementRef;
   @ViewChild('textFile') fileElem: ElementRef;
 
-  analizingStage: number = 0;
+  analizingStage = 0;
   lexiconArray: Lexicon[] = [];
 
   textResults = {
@@ -19,24 +19,22 @@ export class CalculatorComponent implements OnInit {
     negative: 0,
     neutral: 0,
     total: 0
-  }
+  };
   fileResults = {
     pozitive: 0,
     negative: 0,
     neutral: 0,
     total: 0
-  }
+  };
 
   constructor(private service: AppService) { }
 
   ngOnInit(): void {
     this.lexiconArray = this.service.fetchLocalStorage();
   }
-  
-  analizeData(text: string, fileText: string) {
-    //fileText can receive string or null (if no input provided => null);
 
-    this.resetData(); //if analizing, previous data should't be shown
+  analizeData(text: string, fileText: string) {
+    this.resetData();// Remove previous data shown
 
     let reg = /[^0-9a-zA-Z]+/;
     let textToAnalize = text.toUpperCase().split(reg);
@@ -58,10 +56,10 @@ export class CalculatorComponent implements OnInit {
               return this.fileResults.negative++;
             }
           }
-        })
-      })
+        });
+      });
     }
-  
+
     if (textToAnalize) {
       textToAnalize.forEach((word: string) => {
         this.lexiconArray.forEach((lexicon: Lexicon) => {
@@ -78,43 +76,40 @@ export class CalculatorComponent implements OnInit {
               return this.textResults.negative++;
             }
           }
-        })
-      })
+        });
+      });
     }
     setTimeout((spinner: void) => {
       this.analizingStage = 2;
     }, 1500);
-
   }
 
   analize() {
     const text = this.textElem.nativeElement.value;
     let file = this.fileElem.nativeElement.files[0] || null;
+
     if (file) {
       let reader = new FileReader();
       reader.onload = () => {
         file = reader.result;
-        return this.analizeData(text, file)
+        return this.analizeData(text, file);
       }
       reader.readAsText(file);
     } else {
-      this.analizeData(text, null)
+      this.analizeData(text, null);
     }
   }
 
   resetData() {
     this.analizingStage = 1;
-
     this.textResults.pozitive = 0;
     this.textResults.neutral = 0;
     this.textResults.negative = 0;
     this.textResults.total = 0;
-
     this.fileResults.pozitive = 0;
     this.fileResults.neutral = 0;
     this.fileResults.negative = 0;
     this.fileResults.total = 0;
   }
-
 }
 

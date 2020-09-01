@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Lexicon } from './lexicon.model';
 import { AppService } from '../app.service';
@@ -11,14 +11,15 @@ import { AppService } from '../app.service';
 export class LexiconComponent implements OnInit {
 
 
-  lexiconArray: Lexicon[] = []
+  lexiconArray: Lexicon[] = [];
+  needSaving = false;
+  savingMessage = '';
 
-  applyClass: string = '';
-
-  allWords: number = 0;
-  positiveAmount: number = 0;
-  neutralAmount: number = 0;
-  negativeAmount: number = 0;
+  applyClass = '';
+  allWords = 0;
+  positiveAmount = 0;
+  neutralAmount = 0;
+  negativeAmount = 0;
 
   constructor(private service: AppService) { }
 
@@ -46,15 +47,27 @@ export class LexiconComponent implements OnInit {
     const value: number = values.value;
     if (form.valid) {
       this.lexiconArray = this.service.addNewLexicon(word, value);
-      console.log(word, value)
       this.getWordsAmount();
+      this.needSaving = true;
+      this.savingMessage = 'Changes not saved';
     }
-
-
+  }
+  displaySavingMessage() {
+    if (this.needSaving === true) {
+      this.savingMessage = 'Changes not saved';
+    } else {
+      this.savingMessage = 'Saved';
+      setTimeout(clearMessage => {
+        this.savingMessage = '';
+      }, 1000)
+    }
   }
   deleteItem(index: number) {
     this.lexiconArray = this.service.deleteFromLexicon(index);
     this.getWordsAmount();
+    this.needSaving = true;
+    this.displaySavingMessage();
+
   }
   // add 'neutral' as param to filter neutral words. 'positive' to filter positive, 'negative' for negative.
   filterWords(param: string) {
@@ -65,5 +78,7 @@ export class LexiconComponent implements OnInit {
   onSave() {
     let dataToStore = this.service.getUpdatedLexicon();
     localStorage.setItem('lexicon', JSON.stringify(dataToStore));
+    this.needSaving = false;
+    this.displaySavingMessage();
   }
 }

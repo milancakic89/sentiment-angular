@@ -6,7 +6,7 @@ import { LexiconComponent } from './lexicon/lexicon.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { HeaderComponent } from './header/header.component';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { ResultTextComponent } from './calculator/result-text/result-text.component';
 import { ResultFileComponent } from './calculator/result-file/result-file.component';
 import { SpinnerComponent } from './calculator/spinner/spinner.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'lexicon', component: LexiconComponent },
   { path: 'calculator', component: CalculatorComponent },
   { path: ':others', component: LexiconComponent }
-]
+];
 
 @NgModule({
   declarations: [
